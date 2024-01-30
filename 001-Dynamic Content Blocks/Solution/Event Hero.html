@@ -1,0 +1,82 @@
+%%[
+
+SET @rows = LookupOrderedRows('EventData',4,'Date ASC','Region',region)
+FOR @i = 1 TO RowCount(@rows) DO
+
+IF Field(Row(@rows,@i),'Date') > Now() THEN
+SET @lr = IIF(Mod(@i,2),"ltr","rtl")
+]%%
+
+
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #007FFF; min-width: 100%; " class="stylingblock-content-wrapper">
+  <tr>
+    <td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner">
+      <table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%;">
+        <tr>
+          <td>
+            <table cellspacing="0" cellpadding="0" role="presentation" dir="%%=v(@lr)=%%" style="width: 100%;">
+              <tr>
+                <td valign="top" class="responsive-td" dir="ltr" style="width: 70%; padding-left: 3px;">
+                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper">
+                    <tr>
+                      <td class="stylingblock-content-wrapper camarker-inner">
+                        <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
+                          <tr>
+                            <td align="center">
+                              <img src="%%=Field(Row(@rows,@i), 'Banner')=%%" alt="" width="400" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;">
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td valign="top" class="responsive-td" dir="ltr" style="width: 30%; padding-right: 3px;">
+                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper">
+                    <tr>
+                      <td style="padding: 10px 0px; " class="stylingblock-content-wrapper camarker-inner">
+                        <div style="text-align: center;">
+                          <span style="color:#ffffff;">%%=FormatDate(Field(Row(@rows,@i),'Date'), 'MMMM', '', '')=%%
+                            </span>
+                        </div>
+                        <h1 style="color: rgb(24, 24, 24); font-family: Arial, helvetica, sans-serif; font-size: 28px; font-style: normal; font-weight: bold; line-height: 1; text-align: center;">
+                          <span style="color:#ffffff;">%%=FormatDate(Field(Row(@rows,@i),'Date'), 'd ', '', '')=%%</span>
+                        </h1>
+                        <div style="text-align: center;">
+                          <span style="color:#ffffff;">%%=FormatDate(Field(Row(@rows,@i),'Date'), '', 'h:mm tt', '')=%%</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper">
+                    <tr>
+                      <td style="padding: 0px 0px 15px; " class="stylingblock-content-wrapper camarker-inner">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                          <tr>
+                            <td align="center">
+                              <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+                                <tr>
+                                  <td class="innertd buttonblock" bgcolor="#3030CE" style=" border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; background-color: #3030CE;">
+                                    <a target="_blank" class="buttonstyles" style=" font-size: 16px; font-family: Arial, helvetica, sans-serif; color: #FFFFFF; text-align: center; text-decoration: none; display: block; background-color: #3030CE; border: 1px solid #3030CE; padding: 10px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;" href="%%=Field(Row(@rows,@i), 'EventLink')=%%" title="" alias="" conversion="false">REGISTER</a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+%%[ENDIF
+NEXT @i]%%

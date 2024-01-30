@@ -1,0 +1,58 @@
+%%[
+
+SET @rows = LookupOrderedRows('EventData',4,'Date ASC','Region',region)
+FOR @i = 1 TO RowCount(@rows) DO
+
+
+IF Field(Row(@rows,@i),'Date') > Now() THEN
+SET @lr = IIF(Mod(@i,2),"ltr","rtl")
+]%%
+
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper">
+  <tr>
+    <td style="padding: 10px; " class="stylingblock-content-wrapper camarker-inner">
+      <table cellspacing="0" cellpadding="0" role="presentation" style="width: 100%; padding-bottom: 15px; border-bottom: 1px solid #000000">
+        <tr>
+          <td>
+            <table cellspacing="0" cellpadding="0" role="presentation" dir="%%=v(@lr)=%%" style="width: 100%;">
+              <tr>
+                <td valign="top" class="responsive-td" dir="ltr" style="width: 80%; padding-left: 0px;">
+                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper">
+                    <tr>
+                      <td style="padding: 0px 10px; " class="stylingblock-content-wrapper camarker-inner">
+                        <b>
+                          <span style="color:#3498db;">%%=FormatDate(Field(Row(@rows,@i),'Date'), 'd MMMM', 'h:mm tt', '')=%%</span>
+                        </b>
+                        <h1 style="color:#181818;font-family:Arial,helvetica,sans-serif;font-size:28px;font-style:normal;font-weight:bold;line-height:1;">
+                          <a href="%%=Field(Row(@rows,@i), 'EventLink')=%%" style="text-decoration: none;"><span style="font-size:18px;">%%=Field(Row(@rows,@i),'Name')=%%</span></a>
+                        </h1>%%=Field(Row(@rows,@i),'Description')=%%
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td valign="top" class="responsive-td" dir="ltr" style="width: 20%; padding-right: 0px;">
+                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper">
+                    <tr>
+                      <td class="stylingblock-content-wrapper camarker-inner">
+                        <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
+                          <tr>
+                            <td align="center">
+                              <img src="%%=Field(Row(@rows,@i), 'Circle')=%%" alt="" height="100" width="100" style="display: block; padding: 0px; text-align: center; height: 100px; width: 100px; border: 0px;">
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+%%[ENDIF
+NEXT @i]%%
