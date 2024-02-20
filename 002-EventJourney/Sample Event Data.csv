@@ -1,0 +1,11 @@
+ContactID,AccountID,Account_Name,Name,Email,ActiveAccount,InvitedDate,Response,ResponseDate
+a03abed4-54a8-458e-b191-1d3001746d76,4a90a7dd-01be-476c,ABC Company,John Doe,johndoe@email.com,TRUE,,,
+793f4015-ab8d-43eb-9e89-91fd48a61dcf,a769a00a-1ece-495b,XYZ Corporation,Jane Smith,janesmith@email.com,TRUE,,,
+cd4cbcf0-a94d-48d0-ba5d-2e69f1cec14b,c08bf379-42fb-4c03,123 Industries,Michael Johnson,michaeljohnson@email.com,TRUE,,,
+6169c7f2-af54-439b-ad3b-accb003c69b6,d8518d11-3d3d-49c3,Acme Corp,Susan Lee,susanlee@email.com,TRUE,,,
+f7395106-2197-4e94-b6fe-e8b03d963b5d,e0dc4b33-5cb5-4552,Global Ventures,David Williams,davidwilliams@email.com,TRUE,,,
+f1d2515b-72e4-40d2-b2e2-e15b4c574ad5,b239ad8b-54c1-4f91,Innovative Solutions,Amy Brown,amybrown@email.com,TRUE,,,
+1ba69e5b-851f-466e-a568-35c11e27091e,8d35a511-7368-4ce4,Future Enterprises,Chris Wilson,chriswilson@email.com,TRUE,,,
+58aa067b-acca-422c-8d83-05ef63344a79,c9640059-3da9-4f12,Dynamic Innovations,Kelly Garcia,kellygarcia@email.com,TRUE,,,
+1ce85b97-6035-45f6-afcb-6941361b64dd,0b3ea512-1d60-4c4d,Quantum Technologies,Robert Martinez,robertmartinez@email.com,TRUE,,,
+460ae836-98c9-4867-9ce5-0d1cbd890f59,9efd2465-0f7e-4798,Pioneer Group,Sarah Thompson,sarahthompson@email.com,TRUE,,,
