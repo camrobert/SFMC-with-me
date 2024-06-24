@@ -1,6 +1,6 @@
 # Episode 003 - Code Challenge: Letter Counter
 
-**Live Stream Link**: https://www.youtube.com/
+**Live Stream Link**: https://www.youtube.com/watch?v=l06usigdVys
 
 **Topics**: Code Challenge, AMPscript, SSJS
 
