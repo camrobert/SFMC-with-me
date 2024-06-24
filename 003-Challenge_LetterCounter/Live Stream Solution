@@ -1,0 +1,26 @@
+%%[
+SET @textvalue = RequestParameter("text")
+SET @uppertextvalue = Uppercase(@textvalue)
+
+FOR @zzzzz = 65 TO 90 DO
+SET @nothing = TreatAsContent(CONCAT('%','%[SET @set_', CHAR(@zzzzz), ' = RequestParameter("',CHAR(@zzzzz),'")]%', '%'))
+IF TreatAsContent(CONCAT('%','%[outputline(CONCAT(@set_',CHAR(@zzzzz),'))]%', '%')) == 1 THEN
+
+outputline(CONCAT(CHAR(@zzzzz),": ",Subtract(Length(@uppertextvalue),Length(Replace(@uppertextvalue,CHAR(@zzzzz),''))),"<br>"))
+ENDIF
+NEXT @zzzzz
+]%%
+
+<form method="POST">
+  Input: <input type="text" name="text" id="text"><br><br>
+  <table border=1>
+    <tr>
+%%[
+FOR @al = 65 TO 90 DO
+outputline(CONCAT("<td>",CHAR(@al),'<br><input type="checkbox" name="',CHAR(@al),'" value="1"></td>'))
+NEXT @al
+]%%
+    </tr>
+  </table><br>
+  <input type="submit" value="Submit">
+</form>
